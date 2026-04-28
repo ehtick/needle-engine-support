@@ -130,6 +130,10 @@ After clicking `Copy Component`, paste it onto another object with the `Paste as
 
 Want behavior that doesn't exist yet? Write your own TypeScript components that automatically appear in Blender.
 
+:::tip Use AI to build components faster
+Need a custom interaction? Let AI help you build it. With Needle MCP, tools like Claude, Copilot, Cursor, and OpenAI/Codex can inspect existing components on objects, add Needle components, change component properties, move objects, and help debug Blender-to-web workflows with real project context. [Connect Needle MCP →](/docs/ai/needle-mcp-server)
+:::
+
 ### Creating Custom Components
 
 >First, make sure you have already generated the web project in the `Needle Engine` panel.

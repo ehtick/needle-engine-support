@@ -155,18 +155,43 @@ The Needle MCP Server comes with built-in tools that are always available, even 
 
 | Tool | Description |
 |------|-------------|
-| `needle_search` | Search Needle Engine docs, forum posts, and community discussions by semantic similarity. |
-| `load_needle_engine_skill` | Load the [Needle Engine skill](/docs/ai/#code-with-ai) with coding guidelines, patterns, and API references. |
-| `get_editor_project_path` | Get the path to the currently opened Unity or Blender project. |
-| `get_editor_scene_path` | Get the path to the currently opened scene. |
-| `get_web_project_path` | Get the path to the Needle Engine web project directory. |
-| `get_editor_logpath` | Get the path to the Unity or Blender editor log file. |
-| `local_read_file` | Read a file from the editor or web project, with optional line range and text filter. |
-| `local_grep` | Search project files by regex pattern, with optional glob and result limit. |
-| `local_list_files` | List files in the project directories, with optional glob pattern and recursion. |
-| `local_read_editor_log` | Read or search the editor log file by keyword. |
-| `local_read_gltf` | Summarize a glTF/GLB file — nodes, meshes, materials, animations, extensions. Supports JSON pointer queries. |
+| Search | Search Needle Engine docs, forum posts, and community discussions by semantic similarity. |
+| Load Needle Skill | Load the [Needle Engine skill](/docs/ai/#code-with-ai) with coding guidelines, patterns, and API references. |
+| Get Project Path | Get the path to the currently opened Unity or Blender project. |
+| Get Scene Path | Get the path to the currently opened scene. |
+| Get Web Project Path | Get the path to the Needle Engine web project directory. |
+| Get Log Path | Get the path to the Unity or Blender editor log file. |
+| Read File | Read a file from the editor or web project, with optional line range and text filter. |
+| Search Files | Search project files by regex pattern, with optional glob and result limit. |
+| List Files | List files in the project directories, with optional glob pattern and recursion. |
+| Read Log | Read or search the editor log file by keyword. |
+| Read glTF / GLB | Summarize a glTF/GLB file — nodes, meshes, materials, animations, extensions. Supports JSON pointer queries. |
 
+## <logo-header logo="/blender/logo.png" alt="Blender">Blender Tools</logo-header>
+
+When you're using the **[Needle Blender add-on](/docs/blender/)**, it also registers Blender-specific MCP tools. This means your AI can do more than just read files: it can inspect your Blender scene structure and help make targeted changes.
+
+| Tool | What it does |
+|------|---------------|
+| Hierarchy Search | Search the Blender hierarchy by name or object type, optionally including Needle components. |
+| Object Details | Inspect object details including transforms, mesh stats, materials, modifiers, constraints, visibility, and Needle components. |
+| Selected Objects | Read the current Blender selection, optionally with full object details. |
+| Object Selection | Select one or more Blender objects by name and set the active object. |
+| Scene Settings | Read Needle scene settings such as compression, XR, networking, rendering, and export-related options. |
+| Add Component | Add a Needle component to a Blender object and optionally set initial properties. |
+| Component Properties | Change one or more properties on an existing Needle component. |
+| Object Transform | Move, rotate, and scale Blender objects. |
+
+Try prompts like:
+- *"Show me all cameras in my Blender scene"*
+- *"What Needle components are on the selected objects?"*
+- *"Add OrbitControls to the main camera"*
+- *"Set the BoxCollider size on Cube to match the mesh"*
+- *"Which materials on this object use image textures?"*
+
+:::tip Blender + AI
+If you've seen AI tools announce Blender support recently: Needle already provides this workflow. Start the Blender add-on, connect Claude, Copilot, Cursor, or OpenAI/Codex to Needle MCP, and your AI can work with real Blender scene context. You can also open Needle Cloud AI directly from Blender via `Ask AI about Project`.
+:::
 
 ## Additional Tools when using Needle Inspector
 

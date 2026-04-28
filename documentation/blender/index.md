@@ -106,6 +106,10 @@ Download and **open any sample `.blend` file** in Blender. These samples show wh
 When you save your `.blend` file, Needle Engine automatically re-exports your scene and refreshes the browser. This hot reload makes iteration super fast!
 :::
 
+:::tip AI for Blender
+Needle already lets you use AI with Blender. Connect Claude, Copilot, Cursor, or OpenAI/Codex through Needle MCP to search your scene hierarchy, inspect selected objects, materials, and components, read project context, and even select objects in Blender. You can also launch Needle Cloud AI directly from Blender with the built-in `Ask AI about Project` action. [Learn more about Needle MCP →](/docs/ai/needle-mcp-server)
+:::
+
 ---
 
 ## Step 3: Add Basic Interactivity

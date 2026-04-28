@@ -129,6 +129,10 @@ Here's how you work with Needle Engine. Don't have the add-on yet? [Download the
 Changes in Blender update instantly in your browser. No waiting for long exports or builds!
 :::
 
+:::tip AI can help here, too
+You can already use AI directly with your Blender workflow: connect local AI tools through Needle MCP to inspect your scene hierarchy, selected objects, materials, and Needle components, or ask Needle Cloud AI from inside Blender with project context attached. [Needle MCP setup →](/docs/ai/needle-mcp-server)
+:::
+
 ---
 
 ## Example: Interactive Product Showcase
