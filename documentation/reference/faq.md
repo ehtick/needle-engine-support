@@ -229,6 +229,29 @@ If this doesn't fix the problem please ask [in our forum](https://forum.needle.t
 ## My scene is not loading and the console contains a warning with 'circular references' or 'failed to update active state'
 Please see the [circular reference error](#circular-reference-error) section.
 
+## My references to UI objects (Canvas, Image) are wrong or null at runtime
+
+If you reference a UI object's Transform in Unity and use `@serializable(Object3D)` in TypeScript, the reference won't resolve correctly at runtime. This is because UI objects use `RectTransform`, which — unlike regular `Transform` — exists as a separate component in Needle Engine (it holds layout data). The `@serializable` type must match what is actually referenced: if Unity points to a RectTransform, the TypeScript field must use `RectTransform` too.
+
+**Fix: declare the field as RectTransform:**
+
+```ts
+import { RectTransform } from "@needle-tools/engine";
+
+@serializable(RectTransform)
+myCanvas: RectTransform | null = null;
+
+// Access the Object3D via this.myCanvas?.gameObject
+```
+
+Alternatively, if you only need the Object3D, override the C# type so Unity exports a GameObject reference instead:
+
+```ts
+// @type UnityEngine.GameObject
+@serializable(Object3D)
+myCanvas: Object3D | null = null;
+```
+
 ## My UI is not rendering Text
 
 - For Unity: Make sure that you use the `UI/Legacy/Text` component and **not** the `TextMeshPro - Text` component
