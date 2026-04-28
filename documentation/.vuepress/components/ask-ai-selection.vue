@@ -104,9 +104,8 @@ export default {
       popup.classList.add('visible')
       if (this._input) {
         this._input.value = ''
-        // Apply custom highlight so selection stays visible while input has focus
+        // Keep the selection visibly highlighted without stealing focus from the page.
         if (this._savedRange) this.setHighlight(this._savedRange)
-        this._input.focus({ preventScroll: true })
       }
     },
 
