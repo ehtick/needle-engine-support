@@ -79,6 +79,46 @@ This typically happens when the license server can't find your PRO license. Comm
 - **No access token set in CI/CD:** In automated environments, set the `NEEDLE_CLOUD_TOKEN` environment variable with a token from your PRO team. See [How do I activate my license in a standalone web project or CI/CD?](#how-do-i-activate-my-license-in-a-standalone-web-project-or-ci-cd) above.
 - **License server not running:** If you're using Unity or Blender with a Needle scene open, the license server is started automatically. Otherwise, run `npx --yes needle-cloud start-server` before your build command.
 
+## I applied for an EDU license — what's next?
+
+Great, thanks for applying! Here's what to expect:
+
+**Your application is being reviewed.** We review every single application by hand. Depending on volume this can take anywhere from **a few days to several weeks** — we appreciate your patience while we work through submissions.
+
+**Approval is not guaranteed.** We do our best to support educators and students, but we can't approve every application. If your application is approved, we'll reach out by email.
+
+**You can start right now.** You don't have to wait — download Needle Engine and start building today. You can deploy to Needle Cloud right away with the free Basic license:
+- [Get Started with Needle Engine](/docs/getting-started/)
+- [Download for Unity](/docs/downloads/unity)
+- [Download for Blender](/docs/downloads/blender)
+
+Try the samples, follow the tutorials, and get familiar with the workflow while your application is in review.
+
+**Need a license sooner?** You can always purchase a license at any time at [needle.tools/pricing](https://needle.tools/pricing) — no need to wait for the EDU review.
+
+**Questions?** Reach out on our [Forum](https://forum.needle.tools) or [Discord](https://discord.needle.tools).
+
+## I'm a student — how do I get an EDU license?
+
+The fastest way is through your **teacher or school**. A single EDU license applied for by an educator can cover all students in a course or program. If your instructor hasn't heard of Needle Engine yet, point them to our [EDU pricing](https://needle.tools/pricing).
+
+If you're applying individually, a strong application makes a real difference:
+- **Use your edu or school email address** — this helps us verify your enrollment.
+- **Include your portfolio** or links to your work — show us what you've been building.
+- **Describe what you're planning to build** — tell us how you'll use Needle Engine in your studies or projects.
+
+You don't have to wait for the review — you can start building and deploying to [Needle Cloud](https://cloud.needle.tools) right away with the free Basic license. A Pro or EDU license unlocks higher storage limits and additional export options in Unity and Blender.
+
+## What makes a strong EDU application?
+
+We review every application individually. Here's what helps yours stand out:
+- **Use an edu or school email address** rather than a personal email (Gmail, Yahoo, etc.).
+- **Include a portfolio or examples of your work** — even a simple website, GitHub profile, or project screenshots.
+- **Write a clear description** of what you plan to build with Needle Engine and how it fits into your course or research.
+- **Teachers:** Mention your course name, class size, and how Needle Engine will be used in the curriculum.
+
+Applications with these details are much easier for us to evaluate and approve.
+
 ## I didn't receive a confirmation email
 
 If you haven't received a confirmation email after signing up or purchasing a license, please check the following:
