@@ -148,6 +148,26 @@ There are two ways to upgrade:
 
 2. **Via Unity's Package Manager:** Open `Window/Package Manager`, find the Needle Engine package, and update it from there. To access **beta**, **alpha**, or other **preview** versions, you need to enable preview packages in the Package Manager settings first.
 
+## How can I override the Needle Engine version in my web project?
+
+::: tip
+This only applies to web projects managed by Unity or Blender. Only do this when asked by the Needle Engine developers, for example to test a specific version or pre-release build.
+:::
+
+In Unity/Blender managed web projects, the `@needle-tools/engine` version is controlled by the integration automatically. To override it, add the `npm:` prefix in your `package.json`:
+
+```json
+{
+  "dependencies": {
+    "@needle-tools/engine": "npm:@needle-tools/engine@^4.16.0"
+  }
+}
+```
+
+Then run `npm install` to install the overridden version and restart your dev server. The `npm:` prefix tells the Unity/Blender integration that you are intentionally overriding the version, so it won't revert your change.
+
+Once you're done testing, remove the `npm:` prefix and restore the original version, or update your Unity/Blender package to match.
+
 ## What are package.json and package-lock.json?
 
 See [Project Structure – package.json](/docs/explanation/core-concepts/project-structure#understanding-files-and-folders-in-the-web-project) for a full explanation of these files and how they relate to your project.
