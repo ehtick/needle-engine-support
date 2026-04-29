@@ -98,6 +98,12 @@ Try the samples, follow the tutorials, and get familiar with the workflow while 
 
 **Questions?** Reach out on our [Forum](https://forum.needle.tools) or [Discord](https://discord.needle.tools).
 
+## I'm attending a course that uses Needle Engine — how do I get access?
+
+If your course already uses Needle Engine, you don't need to apply for your own license. Ask your teacher or instructor to **invite you to their Needle Cloud team**. Once you're added, you'll have access to the EDU license through their team — no separate application needed.
+
+Not sure if your course has a license? Check with your instructor. If they already have an EDU license, they can invite students from their [Needle Cloud team page](https://cloud.needle.tools/team). If they don't have one yet, suggest they [apply for an EDU license](https://cloud.needle.tools/apply/edu) — it's free for eligible educators and can cover the entire class.
+
 ## I'm a student — how do I get an EDU license?
 
 The fastest way is through your **teacher or school**. A single EDU license applied for by an educator can cover all students in a course or program. If your instructor hasn't heard of Needle Engine yet, point them to our [EDU pricing](https://needle.tools/pricing).
@@ -118,6 +124,14 @@ We review every application individually. Here's what helps yours stand out:
 - **Teachers:** Mention your course name, class size, and how Needle Engine will be used in the curriculum.
 
 Applications with these details are much easier for us to evaluate and approve.
+
+## Can I use Needle Engine for a hackathon or game jam?
+
+Yes, absolutely! We love seeing Needle Engine used at hackathons, game jams, art installations, and creative events. You can get started right away with the free Basic license — download Needle Engine, build your project, and deploy to [Needle Cloud](https://cloud.needle.tools).
+
+Please keep in mind that the [EULA](https://needle.tools/eula) applies to all usage. If your hackathon project turns into something bigger or commercial, you'll need a [Pro license](https://needle.tools/pricing).
+
+Have fun building!
 
 ## I didn't receive a confirmation email
 
