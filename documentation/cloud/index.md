@@ -125,6 +125,8 @@ npm install -g needle-cloud
 needle-cloud deploy '/dist' --team 'My team' --name 'some-project-id'
 ```
 
+The `--team` option accepts either the **team name** (case-insensitive) or the **team ID**. You can find both on your [Needle Cloud team page](https://cloud.needle.tools/team). If `--team` is not provided, your Needle Cloud **default team** is used.
+
 ### <logo-header logo="/imgs/github-logo.webp" alt="GitHub">CI/CD & Automated Deployments</logo-header>
 
 Deploy automatically from GitHub Actions, GitLab CI, or other CI/CD platforms using access tokens.
@@ -158,13 +160,36 @@ npx needle-cloud deploy '/path/to/output' \
 
 ### Starting the Needle License Server
 
-For CI/CD systems and automated builds, you can start the Needle license server using:
+When building outside of Unity or Blender — for example in standalone web projects, CI/CD systems, or automated builds — you need to start the Needle license server to validate your Needle Engine PRO license:
 
 ```bash
 npx --yes needle-cloud start-server
 ```
 
-This is required when running automated builds on CI/CD systems to validate your Needle Engine PRO license.
+You can also use `npx --yes needle-cloud start` as a shorthand. Run this command before your build (e.g. `npm run build`). The license server runs in the background and validates your license during the build process.
+
+**Authentication:**
+
+You must be authenticated so the license server can find your PRO license. There are two options:
+
+1. **Log in interactively** (local development):
+   ```bash
+   npx needle-cloud login
+   ```
+   This opens a browser to authenticate with your Needle account. Make sure to select the **team that has the PRO license** — selecting the wrong team will result in a BASIC license.
+
+2. **Use an access token** (CI/CD and automated environments):
+   Set the `NEEDLE_CLOUD_TOKEN` environment variable with a token created on your [Needle Cloud team page](https://cloud.needle.tools/team). The token must have `read/write` permissions and belong to the team that owns the PRO license.
+   ```bash
+   export NEEDLE_CLOUD_TOKEN=your_token_here
+   npx --yes needle-cloud start-server
+   ```
+
+::: tip Troubleshooting
+If the license server reports a **BASIC** license instead of PRO, the most common cause is being logged in to the wrong team. Run `npx needle-cloud me` to check your current account and team, then `npx needle-cloud login` to switch to the team with the PRO license.
+:::
+
+See also: [FAQ — How do I activate my license in a standalone web project or CI/CD?](/docs/reference/faq#how-do-i-activate-my-license-in-a-standalone-web-project-or-ci-cd)
 
 ### Getting Help
 

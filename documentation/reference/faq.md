@@ -38,21 +38,46 @@ Note: You might need to restart the local webserver to apply the license.
 Follow the steps in [Install the Add-On](/docs/blender/#step-1-install-the-add-on),
 then click the <kbd>Login</kbd> button in the Add-on settings and follow the steps to log in to your Needle account.
 
-## License not found in CI/CD builds
+## How do I activate my license in a standalone web project or CI/CD?
 
-**Problem:** When running automated builds on CI/CD systems (GitHub Actions, GitLab CI, etc.), you may encounter "license not found" errors even with a valid Needle Engine PRO license.
+If you're working in a **standalone web project** (not managed by Unity or Blender) or running **CI/CD builds**, the Needle Engine license needs to be provided through the Needle License Server.
 
-**Solution:** Start the Needle License Server before running your build:
+**Option 1: Log in locally and select your team**
+
+```bash
+npx needle-cloud login
+```
+
+This opens a browser window to authenticate with your Needle account. Make sure you **select the team that has the PRO license** — if you have multiple teams, the wrong team may result in a BASIC license.
+
+Then start the license server before building:
 
 ```bash
 npx --yes needle-cloud start-server
 ```
 
-This command validates your Needle Engine PRO license and allows automated builds to proceed.
+**Option 2: Use a `NEEDLE_CLOUD_TOKEN` environment variable**
 
-**Why is this needed?** CI/CD environments are headless and can't use the standard Unity Editor license validation. The license server provides an alternative authentication method specifically designed for automated workflows.
+Create an access token on your [Needle Cloud team page](https://cloud.needle.tools/team) with `read/write` permissions. Then set it as an environment variable:
+
+```bash
+export NEEDLE_CLOUD_TOKEN=your_token_here
+npx --yes needle-cloud start-server
+```
+
+In CI/CD, add `NEEDLE_CLOUD_TOKEN` as a repository secret and expose it in your workflow.
+
+After starting the license server, run your build as usual (e.g. `npm run build`).
 
 **Learn more:** [Needle Cloud Documentation - Starting the License Server](/docs/cloud/#starting-the-needle-license-server)
+
+## My build uses a BASIC license even though I have PRO
+
+This typically happens when the license server can't find your PRO license. Common causes:
+
+- **Wrong team selected:** If you have multiple Needle Cloud teams, make sure you're logged in to the team that owns the PRO license. Run `npx needle-cloud login` and select the correct team. You can verify your current account and team with `npx needle-cloud me`.
+- **No access token set in CI/CD:** In automated environments, set the `NEEDLE_CLOUD_TOKEN` environment variable with a token from your PRO team. See [How do I activate my license in a standalone web project or CI/CD?](#how-do-i-activate-my-license-in-a-standalone-web-project-or-ci-cd) above.
+- **License server not running:** If you're using Unity or Blender with a Needle scene open, the license server is started automatically. Otherwise, run `npx --yes needle-cloud start-server` before your build command.
 
 ## I didn't receive a confirmation email
 
