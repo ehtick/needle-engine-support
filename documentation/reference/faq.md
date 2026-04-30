@@ -133,6 +133,20 @@ Please keep in mind that the [EULA](https://needle.tools/eula) applies to all us
 
 Have fun building!
 
+## I made something with Needle Engine — how can I share it?
+
+We'd love to see what you've built! Here are the best ways to share your project with us and the community:
+
+- **Email:** Send it to [hi@needle.tools](mailto:hi@needle.tools) — we read every message.
+- **Discord:** Share it in our [Discord community](https://discord.needle.tools) — great for getting feedback and connecting with other creators.
+- **Forum:** Post it on the [Needle Forum](https://forum.needle.tools) — ideal for longer write-ups and discussions.
+
+We genuinely enjoy seeing what people create with Needle Engine, and we may feature outstanding projects on our official showcase or social channels.
+
+## How can I access showcase projects?
+
+Several showcase projects are available for reference and learning, including the **Bike Configurator**, **Castle Builder**, and the **Needle Website**. Access to showcase projects requires a [Pro license](https://needle.tools/pricing). Please contact [hi@needle.tools](mailto:hi@needle.tools) for access.
+
 ## I didn't receive a confirmation email
 
 If you haven't received a confirmation email after signing up or purchasing a license, please check the following:
