@@ -8,7 +8,7 @@ on:
     workflow_dispatch:
 
 
-jobs: 
+jobs:
   notify_discord_start:
     runs-on: ubuntu-latest
     steps:
@@ -20,6 +20,11 @@ jobs:
 
   api:
     runs-on: ubuntu-latest
+    outputs:
+      uploaded_count: ${{ steps.build.outputs.uploaded_count }}
+      uploaded_versions: ${{ steps.build.outputs.uploaded_versions }}
+      versions_checked: ${{ steps.build.outputs.versions_checked }}
+      duration: ${{ steps.build.outputs.duration }}
     steps:
       - uses: actions/checkout@v2
 
@@ -34,6 +39,7 @@ jobs:
         run: npm install
 
       - name: Update needle engine api
+        id: build
         run: npm run docs:build-api
         env:
             API_FTP_USER: ${{ secrets.API_FTP_USER }}
@@ -45,7 +51,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: tsickert/discord-webhook@v5.3.0
+        if: ${{ needs.api.outputs.uploaded_count != '0' }}
         with:
           webhook-url: ${{ secrets.DEPLOY_DISCORD_WEBHOOK }}
           username: "Update Api 🤖"
-          content: "API has been updated → <https://engine.needle.tools/docs/api>"
+          content: "API updated: uploaded ${{ needs.api.outputs.uploaded_count }} new version(s) (${{ needs.api.outputs.uploaded_versions }}) — checked ${{ needs.api.outputs.versions_checked }} versions in ${{ needs.api.outputs.duration }} min → https://engine.needle.tools/docs/api"
+
+      - uses: tsickert/discord-webhook@v5.3.0
+        if: ${{ needs.api.outputs.uploaded_count == '0' }}
+        with:
+          webhook-url: ${{ secrets.DEPLOY_DISCORD_WEBHOOK }}
+          username: "Update Api 🤖"
+          content: "API is up to date — checked ${{ needs.api.outputs.versions_checked }} versions in ${{ needs.api.outputs.duration }} min → https://engine.needle.tools/docs/api"

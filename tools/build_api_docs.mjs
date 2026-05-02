@@ -160,7 +160,21 @@ async function main() {
 
     console.log("Uploaded API documentations: " + uploaded.length + ":\n" + uploaded.map(u => "https://engine.needle.tools/docs/api/" + u).join("\n"));
     // log duration in minutes
-    console.log("Finished in " + ((new Date().getTime() - startTime) / 1000 / 60).toFixed(2) + " minutes");
+    const durationMin = ((new Date().getTime() - startTime) / 1000 / 60).toFixed(2);
+    console.log("Finished in " + durationMin + " minutes");
+
+    // Write summary to GITHUB_OUTPUT for the workflow notification
+    if (isGithubActions && process.env.GITHUB_OUTPUT) {
+        const outputFile = process.env.GITHUB_OUTPUT;
+        const lines = [];
+        lines.push(`uploaded_count=${uploaded.length}`);
+        lines.push(`versions_checked=${versionsChecked}`);
+        if (uploaded.length > 0) {
+            lines.push(`uploaded_versions=${uploaded.join(", ")}`);
+        }
+        lines.push(`duration=${durationMin}`);
+        fs.appendFileSync(outputFile, lines.join("\n") + "\n");
+    }
 
 }
 
