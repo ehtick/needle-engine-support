@@ -158,7 +158,17 @@ If you're still not receiving emails, there may be a service disruption. Check o
 
 ## Can I remove the Needle Engine logo and branding (white-labelling)?
 
-Yes, the Needle Engine logo and branding can be removed with a [PRO license](https://www.needle.tools/pricing). This allows you to fully white-label your web experiences with your own branding.
+Yes, the Needle Engine logo and branding can be removed with an [EDU, PRO, or Enterprise license](https://www.needle.tools/pricing). This allows you to fully white-label your web experiences with your own branding.
+
+The logo appears in the **NeedleMenu** — the bottom-center toolbar in your web experience. In Unity, this is controlled by the `NeedleMenu` component. In code, you can access it via `this.context.menu`.
+
+With a qualifying license, the Needle logo and branding button are automatically removed from the menu.
+
+## How do I remove the bottom bar / NeedleMenu?
+
+The bottom-center toolbar is the **NeedleMenu**. To remove it entirely, delete or disable the `NeedleMenu` component in Unity. In code, you can access it via `this.context.menu`.
+
+Note that removing the Needle branding button from the menu requires an [EDU, PRO, or Enterprise license](https://www.needle.tools/pricing). With a Basic license the branding button must remain visible.
 
 # Installation & Setup
 
@@ -260,6 +270,36 @@ In Unity/Blender managed web projects, the `@needle-tools/engine` version is con
 Then run `npm install` to install the overridden version and restart your dev server. The `npm:` prefix tells the Unity/Blender integration that you are intentionally overriding the version, so it won't revert your change.
 
 Once you're done testing, remove the `npm:` prefix and restore the original version, or update your Unity/Blender package to match.
+
+## I get 'Failed to resolve import "./register_types.js"' after upgrading from Needle Engine 3.x to 5.x
+
+If you see an error like this after opening your web project:
+
+```
+Failed to resolve import "./register_types.js" from "src/generated/gen.js". Does the file exist?
+```
+
+This is caused by your web project still using **Vite 4**, which is incompatible with Needle Engine 4.x and later. You need to update your project's build tooling to **Vite 8**.
+
+**Update the following in your `package.json`:**
+
+```json
+{
+  "devDependencies": {
+    "vite": "^8.0.0",
+    "@vitejs/plugin-basic-ssl": "2",
+    "vite-plugin-compression2": "^2.5.2"
+  }
+}
+```
+
+::: tip
+If your project previously used `vite-plugin-compression` (v1), replace it with `vite-plugin-compression2` and update any imports in your `vite.config.js` accordingly.
+:::
+
+After updating `package.json`, delete your `node_modules` folder and `package-lock.json`, then run `npm install` again.
+
+You can use the [Vite template](https://github.com/needle-engine/vite-template) as a reference for the correct project setup and dependencies.
 
 ## What are package.json and package-lock.json?
 
@@ -409,6 +449,29 @@ export class MyTextComponent extends Behaviour {
 Both cause the component compiler to generate `public UnityEngine.Font font;` in the C# stub, so Unity users can drag-and-drop a font asset into the Inspector field. During export, Needle Engine automatically generates the MSDF font atlas and serializes the font as a URL string.
 
 # Rendering & Visuals
+
+## Can I use camera stacking (URP overlay cameras) to render UI without post-processing?
+
+No, Unity's URP camera stacking is not supported in Needle Engine. The overlay camera concept does not translate to the three.js rendering pipeline used under the hood.
+
+**Alternatives for rendering world-space UI above the 3D scene without post-processing:**
+
+- **HTML/CSS overlay:** Use HTML elements positioned over the 3D canvas. This naturally bypasses post-processing since it's outside the WebGL context and is the recommended approach for most UI.
+- **Custom render pass:** Implement a second render pass using three.js render layers with `autoClear` disabled in a custom component.
+
+## I can't set camera clear flags or priority in Unity (URP)
+
+In Unity's Universal Render Pipeline, clear flags and camera priority cannot be configured from the Inspector UI for Needle Engine export. These settings must be set from code at runtime.
+
+In your TypeScript component, you can access the camera's clear flags via the three.js camera and renderer:
+
+```ts
+// Example: set clear flags in code
+this.context.renderer.autoClear = false;
+this.context.renderer.setClearColor(0x000000, 0); // transparent background
+```
+
+Camera stacking and overlay cameras from URP are [not supported](#can-i-use-camera-stacking-urp-overlay-cameras-to-render-ui-without-post-processing).
 
 ## My objects are white after export
 This usually happens when you're using custom shaders or materials and their properties don't cleanly translate to known property names for glTF export.
