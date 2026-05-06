@@ -262,82 +262,13 @@ There's a friendly Discord community, extensive documentation, video tutorials, 
 
 ---
 
-## Getting Started
-
-Ready to bring your 3D art to the web?
-
-### Installation (5 minutes)
-
-1. **Install Blender Add-on**
-   - [Download Needle Engine for Blender](https://engine.needle.tools/downloads/blender?utm_source=needle_docs&utm_content=getting_started)
-   - Install like any Blender add-on
-   - Activate in Preferences
-
-2. **Download Sample Projects**
-   - [Download Blender Samples](https://engine.needle.tools/downloads/blender/download-samples?utm_source=needle_docs&utm_content=blender)
-   - Open sample .blend files to see working examples
-   - Modify and experiment!
-
-3. **Start Creating**
-   - Begin with a simple scene
-   - Add Needle components from the side panel
-   - Click "Play in Browser" to preview
-
-:::tip Start Small
-Don't start with your most complex scene. Begin with something simple to learn the workflow, then level up!
-:::
-
-### Learning Resources
-
-**For Visual Learners:**
-- [Video Tutorials](https://www.youtube.com/@needle-tools) - Step-by-step guides
-- [Sample Projects](https://engine.needle.tools/samples) - Explore working examples
-- [Live Demos](https://samples.needle.tools/#showcase) - See what's possible
-
-**For Reading:**
-- [Blender Integration Guide](/docs/blender/) - Complete Blender workflow
-- [Component Reference](/docs/reference/components) - All built-in components
-- [How-To Guides](/docs/how-to-guides/) - Specific tasks
-
-**Community:**
-- [Discord Community](https://discord.needle.tools) - Ask questions, share work
-- [Forum](https://forum.needle.tools) - Discussions and examples
-- [Samples & Showcase](https://samples.needle.tools/#showcase) - Get inspired
-
----
-
-## Inspiration: What Will You Create?
-
-Needle Engine gives you **superpowers** as a 3D artist:
-
-- 🎨 Your art becomes **interactive and alive**
-- 🌐 Reaches **anyone, anywhere, instantly**
-- 📱 Works on **every device automatically**
-- 🥽 Supports **VR and AR natively**
-- ⚡ Loads **fast and runs smoothly**
-
-Whether you're showcasing your portfolio, creating client work, building an art installation, or just exploring creative possibilities—Needle Engine makes your 3D work accessible to the world.
-
-**The best part?** You don't need to be a programmer. You're a 3D artist, and that's exactly what Needle Engine needs.
-
----
-
 ## Next Steps
 
-Start your journey:
-
-1. **Install the Add-on** - [Download from needle.tools](https://needle.tools)
-2. **Watch a Quick Start Video** - [YouTube](https://www.youtube.com/@needle-tools)
-3. **Open a Sample Project** - See working examples in Blender
-4. **Join the Community** - [Discord](https://discord.needle.tools) for help and inspiration
-5. **Create Something Amazing** - Your first interactive 3D experience!
-
-:::tip Share Your Work!
-When you create something, share it in the Discord! The community loves seeing what artists create, and you'll get helpful feedback and encouragement.
-:::
-
----
-
-**Ready to bring your 3D art to life on the web? Let's go! 🚀**
-
-[Install Needle Engine →](https://needle.tools) • [Watch Video Tutorial →](https://www.youtube.com/@needle-tools) • [Join Discord →](https://discord.needle.tools)
+- [Get Started with Blender →](/docs/blender/) — install the add-on and create your first project
+- [Environment Lighting →](/docs/blender/environment) — custom HDRIs, skybox settings, and automatic compression
+- [Animation →](/docs/blender/animation) — playback, state machines, and timeline export
+- [Components →](/docs/blender/components) — 100+ built-in behaviors and creating your own
+- [Lightmapping →](/docs/blender/lightmapping) — baked lighting for stunning visuals with great performance
+- [Deploy Your Project →](/docs/how-to-guides/deployment/) — publish to Needle Cloud or self-host
+- [Sample Projects →](https://engine.needle.tools/samples) — interactive examples to learn from
+- [FAQ →](/docs/reference/faq) — common questions and troubleshooting

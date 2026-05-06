@@ -74,10 +74,10 @@ Hover over any property to see its description.
 - `HoverAnimation` - Plays animation on pointer hover enter/exit events
 - `ScrollFollow` - Move objects based on scroll position
 - `EverywhereActions` - Trigger actions on various events (click, hover, collision, etc.)
+- [Learn more about interactivity →](/docs/how-to-guides/scripting/)
 
 **UI & UX:**
 - `Button` - Interactive buttons
-- `Canvas` - UI container
 
 **Multimedia:**
 - `VideoPlayer` - Play video files and streams

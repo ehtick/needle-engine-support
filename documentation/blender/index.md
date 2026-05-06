@@ -106,13 +106,29 @@ Download and **open any sample `.blend` file** in Blender. These samples show wh
 When you save your `.blend` file, Needle Engine automatically re-exports your scene and refreshes the browser. This hot reload makes iteration super fast!
 :::
 
-:::tip AI for Blender
-Needle already lets you use AI with Blender. Connect Claude, Copilot, Cursor, or OpenAI/Codex through Needle MCP to search your scene hierarchy, inspect selected objects, materials, and components, read project context, and even select objects in Blender. You can also launch Needle Cloud AI directly from Blender with the built-in `Ask AI about Project` action. [Learn more about Needle MCP →](/docs/ai/needle-mcp-server)
+:::tip AI-Assisted Workflow
+Need help with Needle Engine while working in Blender? Connect AI coding assistants like Claude, Copilot, or Cursor through Needle MCP — they can search your scene hierarchy, inspect objects and materials, read project context, and help you write components. You can also use the built-in `Ask AI about Project` action to get answers directly in Blender. [Learn more about Needle MCP →](/docs/ai/needle-mcp-server)
 :::
 
 ---
 
-## Step 3: Add Basic Interactivity
+## Step 3: Set Up Environment Lighting
+
+Your HDRI environment is automatically exported and used for lighting — objects in your scene will reflect it and receive ambient light from it. The visible background is separate: it can show the skybox or render as a solid color.
+
+**To set up your environment:**
+1. Open **Viewport Shading** options (top right of 3D viewport)
+2. Assign an HDRI cubemap
+3. Optionally, set `World Opacity` to **1** to also show it as the background skybox
+   <video-embed limit_height max_height="300px" src="/docs/blender/environment.mp4" />
+
+**✓ Checkpoint:** Save and check the browser — your scene should now have environment lighting (and a visible skybox if you set World Opacity to 1)!
+
+**[Learn more about environment lighting →](/docs/blender/environment)** — custom HDRIs, automatic compression for fast loading, and more.
+
+---
+
+## Step 4: Add Basic Interactivity
 
 Now let's add camera controls so users can explore your scene.
 
@@ -144,15 +160,10 @@ Components are reusable behaviors you add to objects. Needle Engine includes 100
 
 ---
 
-## Step 4: Configure Essential Settings
+## Step 5: Set Up Color Management
 
-Before going further, let's fix two common issues.
+By default, Blender uses `Filmic` which makes colors look different in the browser. Switch to `Standard` so what you see in Blender matches the web output.
 
-### Fix Color Management
-
-By default, Blender uses `Filmic` which makes colors look different in the browser.
-
-**To fix:**
 1. Go to **Render Properties** tab
 2. Find **Color Management** section
 3. Set `View` to **Standard**
@@ -160,24 +171,6 @@ By default, Blender uses `Filmic` which makes colors look different in the brows
    ![Color management settings](/blender/settings-color-management.webp "1.5x")
 
 **✓ Checkpoint:** Colors now match between Blender and the web!
-
-### Setup Environment Lighting
-
-Your HDRI environment exports automatically, but you need to make it visible.
-
-**To show skybox:**
-1. Open **Viewport Shading** options (top right of 3D viewport)
-2. Assign an HDRI cubemap
-3. Set `World Opacity` to **1**
-   <video-embed limit_height max_height="300px" src="/docs/blender/environment.mp4" />
-
-**✓ Checkpoint:** Save and see your skybox appear in the browser!
-
-:::tip Fast environment maps — use any size you want
-You can use large, high-quality EXR environment maps without worrying about file size or loading speed. When you build your project or deploy to Needle Cloud, Needle Engine automatically compresses your environment into the [FastHDR](/docs/fasthdr) format — making it dramatically smaller and faster to load while keeping the same visual quality. This happens behind the scenes, no extra steps needed.
-
-Want to preview the compressed result locally? Enable **Auto Compress** in the Needle Engine dropdown above the viewport.
-:::
 
 ---
 
@@ -195,66 +188,16 @@ Your Blender scenes are now running on the web with hot reload!
 
 ## Next Steps
 
-### Continue Learning (Tutorials)
-
 **[For Blender Artists →](/docs/tutorials/fundamentals/for-blender-artists)**
-Comprehensive guide for 3D artists covering what you can create without code, workflow tips, and when you might want scripting.
+Comprehensive guide covering what you can create without code, workflow tips, and when you might want scripting.
 
-**[TypeScript Essentials →](/docs/tutorials/fundamentals/typescript-essentials)**
-Learn TypeScript basics to create custom interactive behaviors.
-
----
-
-### Add More Interactivity (How-To Guides)
-
-Now that you have the basics, explore specific features:
-
-**[Animation Workflows →](/docs/blender/animation)**
-Learn all animation methods: simple Animation component, AnimatorController state machines, and PlayableDirector timeline export.
-
-**[Components Guide →](/docs/blender/components)**
-Master the 100+ built-in components and learn to create your own custom TypeScript components.
-
-**[Lightmapping →](/docs/blender/lightmapping)**
-Bake photorealistic lighting for stunning visuals with great performance.
-
-**[Use Physics →](/docs/how-to-guides/scripting/use-physics)**
-Add rigidbodies, colliders, forces, and raycasting — built-in Rapier physics, no setup needed.
-
-**[Add Multiplayer →](/docs/how-to-guides/networking/)**
-Real-time networking with voice chat, synchronized state, and zero server configuration.
-
-**[Optimization & Progressive Loading →](/docs/how-to-guides/optimization/)**
-Production builds automatically generate mesh LODs, texture LODs, and apply compression — your scenes load instantly and stream in detail on demand. You can override compression format, max size, and LOD settings per texture in **Properties → Material tab → Needle Material Settings**.
-
-**[Deploy Your Project →](/docs/how-to-guides/deployment/)**
-Publish your interactive scene to the web for everyone to see.
-
-**[Enable WebXR →](/docs/how-to-guides/xr/)**
-Add VR and AR support to your scenes.
-
----
-
-### Look Things Up (Reference)
-
-**[Component Catalog →](/docs/reference/components)**
-Browse all 100+ built-in components with descriptions and settings.
-
-**[API Documentation →](https://engine.needle.tools/docs/api/)**
-Complete TypeScript API reference for advanced development.
-
-**[FAQ →](/docs/reference/faq)**
-Common questions and troubleshooting.
-
----
-
-### Get Inspired
-
-**[Sample Projects →](https://engine.needle.tools/samples)**
-Explore interactive examples to see what's possible.
-
-**[Download More Samples →](https://engine.needle.tools/downloads/blender/download-samples)**
-Get working `.blend` files to learn from.
+- [Environment Lighting →](/docs/blender/environment) — custom HDRIs, skybox settings, and automatic compression
+- [Animation →](/docs/blender/animation) — playback, state machines, and timeline export
+- [Components →](/docs/blender/components) — 100+ built-in behaviors and creating your own
+- [Lightmapping →](/docs/blender/lightmapping) — baked lighting for stunning visuals with great performance
+- [Deploy Your Project →](/docs/how-to-guides/deployment/) — publish to Needle Cloud or self-host
+- [Sample Projects →](https://engine.needle.tools/samples) — interactive examples to learn from
+- [FAQ →](/docs/reference/faq) — common questions and troubleshooting
 
 ---
 
