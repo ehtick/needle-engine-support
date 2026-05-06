@@ -173,6 +173,12 @@ Your HDRI environment exports automatically, but you need to make it visible.
 
 **✓ Checkpoint:** Save and see your skybox appear in the browser!
 
+:::tip Fast environment maps — use any size you want
+You can use large, high-quality EXR environment maps without worrying about file size or loading speed. When you build your project or deploy to Needle Cloud, Needle Engine automatically compresses your environment into the [FastHDR](/docs/fasthdr) format — making it dramatically smaller and faster to load while keeping the same visual quality. This happens behind the scenes, no extra steps needed.
+
+Want to preview the compressed result locally? Enable **Auto Compress** in the Needle Engine dropdown above the viewport.
+:::
+
 ---
 
 ## What You've Learned
