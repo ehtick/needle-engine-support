@@ -543,6 +543,16 @@ Ensure your project is set to Linear colorspace.
 
 ![image](https://user-images.githubusercontent.com/5083203/191774978-66e9feb1-0551-4549-85d3-3e5b8021f162.png)
 
+## Why does my Blender scene have a green tint or different color after building / deploying to Needle Cloud?
+
+This was a known bug in the Needle Engine Blender add-on versions **1.0.0 to 1.0.2**. It caused incorrect encoding of PMREM LODs during EXR compression, which gave some scenes a greenish tint. The issue only affected **certain EXR environment textures** (e.g. the built-in `forest.exr`) and only occurred in **Blender** — Unity was not impacted.
+
+**Fix:** Update the Needle Engine Blender add-on to **version 1.0.3 or newer**. The bug has been resolved and no further action is needed after updating.
+
+::: tip
+In general, regularly checking for updates to the Needle Engine add-on is good practice to benefit from bug fixes and new features.
+:::
+
 ## THREE.EXRLoader: provided file doesnt appear to be in OpenEXR format
 
 Please make sure that sure that you have set Lightmap Encoding to **Normal Quality**.
