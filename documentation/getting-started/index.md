@@ -94,7 +94,7 @@ The following tools are used by Needle Engine to create, preview, and build your
 
 ### Node.js (Required)
 
-<os-link windows_url="https://fwd.needle.tools/needle-engine/nodejs/win" osx_url="https://fwd.needle.tools/needle-engine/nodejs/osx">Download Node.js 20 LTS or 22 LTS</os-link>
+<os-link windows_url="https://fwd.needle.tools/needle-engine/nodejs/win" osx_url="https://fwd.needle.tools/needle-engine/nodejs/osx">Download Node.js 22 LTS or 24 LTS</os-link>
 
 **What it does:**
 - Manages your web project dependencies
