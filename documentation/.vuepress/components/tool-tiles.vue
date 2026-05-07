@@ -73,7 +73,7 @@
                 Needle × three.js
             </template>
             <template v-slot:tool-description>
-                three.js r162+
+                three.js r169
             </template>
             <template v-slot:download-button>
                 <needle-button 
