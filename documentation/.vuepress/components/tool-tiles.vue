@@ -7,9 +7,9 @@
                 Needle × Unity
             </template>
             <template v-slot:tool-description>
-                Unity 2021.3 LTS<br/>
                 Unity 2022.3 LTS<br/>
-                Unity 6 LTS
+                Unity 6 LTS<br/>
+                Unity 6.3 LTS
             </template>
             <template v-slot:download-button>
                 <needle-button 
@@ -31,8 +31,8 @@
                 Needle × Blender
             </template>
             <template v-slot:tool-description>
-                Blender 4.1<br/>
-                Blender 4.2+
+                Blender 4.5 LTS<br/>
+                Blender 5.0+
             </template>
             <template v-slot:download-button>
                 <needle-button 
