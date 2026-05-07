@@ -32,7 +32,7 @@
             </template>
             <template v-slot:tool-description>
                 Blender 4.5 LTS<br/>
-                Blender 5.0+
+                Blender 5.0.1
             </template>
             <template v-slot:download-button>
                 <needle-button 
