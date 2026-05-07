@@ -7,13 +7,9 @@ description: Task-oriented guides for solving specific problems with Needle Engi
 
 Task-oriented guides for solving specific problems. Each guide focuses on one topic and assumes you already have a project set up. If you're new, start with [Tutorials](/docs/tutorials/) instead.
 
----
-
-## Getting Started
-
-- [Install for Unity](/docs/unity/) - Unity integration guide
-- [Install for Blender](/docs/blender/) - Blender add-on guide
-- [Use with three.js / Web](/docs/three/) - Vanilla JS, frameworks, and three.js integration
+:::tip Don't have a project yet?
+Head to [Getting Started](/docs/getting-started/) to install Needle Engine for [Unity](/docs/unity/), [Blender](/docs/blender/), or [three.js / Web](/docs/three/).
+:::
 
 ---
 
