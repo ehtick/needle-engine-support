@@ -791,15 +791,13 @@ npx needle-cloud start
 
 If you're using Needle Engine for Unity or Blender, the local server is usually already running — the editor integrations start it automatically. See the [AI Assistant & Tools](/docs/ai/) page for setup instructions for Claude Code, Cursor, VS Code Copilot, and other tools.
 
-## What is the difference between `needle-cloud start`, `start-server`, and `mcp`?
+## What is the difference between `needle-cloud start` and `needle-cloud mcp`?
 
 These commands serve different purposes:
 
-- **`npx needle-cloud start`** — Starts the local Needle Cloud server on `localhost:8424`. This provides the MCP tools for AI assistants **and** acts as the bridge for the Needle Inspector Chrome extension. If you're using Unity or Blender, this server is usually started automatically by the editor integration.
+- **`npx needle-cloud start`** (alias: `start-server`) — Starts the local Needle Cloud server on `localhost:8424`. This handles license validation, provides MCP tools for AI assistants, and acts as the bridge for the Needle Inspector Chrome extension. If you're using Unity or Blender, this server is usually started automatically by the editor integration. In standalone web projects or CI/CD pipelines, run this manually before your build command.
 
-- **`npx needle-cloud start-server`** — Starts the **license server** only. Use this in standalone web projects or CI/CD pipelines to validate your Needle Engine license during builds. This does **not** provide MCP or Inspector functionality.
-
-- **`npx needle-cloud mcp`** — Runs the MCP server in **stdio mode** instead of HTTP. Your AI client spawns the process directly — no persistent server needed. Use this when configuring MCP in tools like Claude Desktop or Cursor via `mcpServers` config. Note: the Needle Inspector Chrome extension requires the HTTP server (`start`), so stdio mode alone won't enable Inspector tools.
+- **`npx needle-cloud mcp`** — Runs the MCP server in **stdio mode** instead of HTTP. Your AI client spawns the process directly — no persistent server needed. Use this when configuring MCP in tools like Claude Desktop or Cursor via `mcpServers` config. The stdio transport also proxies to the HTTP server when it's running, so if `start` is active and the Needle Inspector Chrome extension is connected, Inspector tools become available through stdio as well.
 
 See the [Needle MCP Server documentation](/docs/ai/needle-mcp-server#advanced-connection-modes) for more details.
 
