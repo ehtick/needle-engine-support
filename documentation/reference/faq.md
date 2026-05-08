@@ -339,6 +339,50 @@ export class MyScript extends Behaviour
 }
 ```
 
+## My custom TypeScript class fields don't show up in the Unity/Blender Inspector
+
+The Needle component compiler only auto-generates editor stubs for classes that **extend `Behaviour`** (i.e. components). If you define a plain TypeScript class (e.g. a custom data class used inside a component), it will **not** be generated automatically — you need to create the matching class in your editor project yourself.
+
+For example, if you have:
+
+```ts
+import { Behaviour, serializable } from "@needle-tools/engine";
+import { Object3D } from "three";
+
+export class WaypointData {
+    @serializable()
+    speed: number = 1;
+
+    @serializable(Object3D)
+    target: Object3D | null = null;
+}
+
+export class WaypointController extends Behaviour {
+    @serializable([WaypointData])
+    waypoints: WaypointData[] = [];
+}
+```
+
+The component compiler will generate a stub for `WaypointController` (because it extends `Behaviour`), but **not** for `WaypointData`. You must create the matching class manually in your editor project.
+
+:::: tabs
+@tab Unity
+Create a C# class in your Unity project:
+```csharp
+[System.Serializable]
+public class WaypointData
+{
+    public float speed = 1;
+    public GameObject target;
+}
+```
+
+@tab Blender
+Custom non-component classes are currently not supported in the Blender integration. As a workaround, consider restructuring your data so that the fields are directly on the component itself, or use separate components instead of nested data classes.
+::::
+
+Without this class, the `waypoints` field on `WaypointController` will not be editable in the Inspector.
+
 ## I created a new script in a sub-scene but it does not work
   When creating new scripts in npmdefs in sub-scenes (that is a scene that is exported as a reference from a script in your root export scene) you currently have to re-export the root scene again. This is because the code-gen that is responsible for registering new scripts currently only runs for scenes with a ``Needle Engine`` component. This will be fixed in the future.
 
