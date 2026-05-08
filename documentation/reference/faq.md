@@ -158,7 +158,7 @@ If you're still not receiving emails, there may be a service disruption. Check o
 
 ## Can I change the billing email address for invoices?
 
-Yes. Go to your team's **Billing** section on [Needle Cloud](https://cloud.needle.tools/team), click <kbd>Edit</kbd>, then click <kbd>Edit Payment Info</kbd>. There you can change the invoice email address, update payment methods and cards, and review past payments and upcoming invoices. The billing email doesn't have to match your Needle account email.
+Yes. Go to your team's **Billing** section on [Needle Cloud](https://cloud.needle.tools/team), click <kbd>Edit</kbd>, then click <kbd>Edit Payment Info</kbd>. There you can change the invoice email address, billing address, payment methods and cards, tax ID, and review past payments and upcoming invoices. The billing email doesn't have to match your Needle account email.
 
 ## Can I remove the Needle Engine logo and branding (white-labelling)?
 
