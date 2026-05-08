@@ -801,6 +801,15 @@ These commands serve different purposes:
 
 See the [Needle MCP Server documentation](/docs/ai/needle-mcp-server#advanced-connection-modes) for more details.
 
+# Needle Cloud
+
+## What do the "tags" on Needle Cloud deployments do?
+
+When you set **tags** on a Needle Cloud deployment, they are written as `<meta name="keywords">` in the HTML of your deployed site (if no keywords meta tag already exists). This has two main uses:
+
+- **SEO** — Search engines can use meta keywords to understand your page's topics, improving discoverability.
+- **Google Analytics** — You can use these meta keywords as a custom dimension in GA4. In **Google Tag Manager**, create a "DOM Element" variable that reads the `content` attribute from `meta[name="keywords"]`, then send it as a parameter with your GA4 page view tag. This lets you filter and segment analytics by the tags you set in Needle Cloud.
+
 # Still have questions?
 
 - [Ask in our forum](https://forum.needle.tools/?utm_source=needle_docs&utm_content=content)
