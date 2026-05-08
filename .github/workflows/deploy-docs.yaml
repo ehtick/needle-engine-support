@@ -86,7 +86,7 @@ jobs:
           curl -X POST https://search.needle.tools/api/v1/crawl \
             -H "Authorization: Bearer ${{ secrets.NEEDLE_SEARCH_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -d '{"source": "Needle Engine Docs"}'
+            -d '{"source": "6790017a-f836-4195-8247-7e41a2c70bf0"}'
 
 
   notify_discord:

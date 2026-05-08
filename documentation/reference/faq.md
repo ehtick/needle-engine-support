@@ -780,6 +780,29 @@ See the [AI Assistant & Tools](/docs/ai/) page for the full guide, including:
 - **[llms.txt](https://cloud.needle.tools/llms.txt)** — compact reference for local models (Ollama, etc.)
 - **[llms-full.txt](https://cloud.needle.tools/llms-full.txt)** — complete documentation
 
+## The Needle Inspector Chrome extension doesn't show any tools in my AI assistant
+
+If you're using the Needle Inspector Chrome extension and the live scene tools (e.g. selecting objects, reading scene data) don't appear in your AI assistant's tool list, make sure the **Needle MCP server is running locally**. The Chrome extension connects to the local MCP server at `localhost:8424` — without it, the Inspector tools won't be available to your AI assistant.
+
+Start the local MCP server with:
+```bash
+npx needle-cloud start
+```
+
+If you're using Needle Engine for Unity or Blender, the local server is usually already running — the editor integrations start it automatically. See the [AI Assistant & Tools](/docs/ai/) page for setup instructions for Claude Code, Cursor, VS Code Copilot, and other tools.
+
+## What is the difference between `needle-cloud start`, `start-server`, and `mcp`?
+
+These commands serve different purposes:
+
+- **`npx needle-cloud start`** — Starts the local Needle Cloud server on `localhost:8424`. This provides the MCP tools for AI assistants **and** acts as the bridge for the Needle Inspector Chrome extension. If you're using Unity or Blender, this server is usually started automatically by the editor integration.
+
+- **`npx needle-cloud start-server`** — Starts the **license server** only. Use this in standalone web projects or CI/CD pipelines to validate your Needle Engine license during builds. This does **not** provide MCP or Inspector functionality.
+
+- **`npx needle-cloud mcp`** — Runs the MCP server in **stdio mode** instead of HTTP. Your AI client spawns the process directly — no persistent server needed. Use this when configuring MCP in tools like Claude Desktop or Cursor via `mcpServers` config. Note: the Needle Inspector Chrome extension requires the HTTP server (`start`), so stdio mode alone won't enable Inspector tools.
+
+See the [Needle MCP Server documentation](/docs/ai/needle-mcp-server#advanced-connection-modes) for more details.
+
 # Still have questions?
 
 - [Ask in our forum](https://forum.needle.tools/?utm_source=needle_docs&utm_content=content)
