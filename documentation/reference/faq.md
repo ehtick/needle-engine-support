@@ -810,6 +810,19 @@ When you set **tags** on a Needle Cloud deployment, they are written as `<meta n
 - **SEO** — Search engines can use meta keywords to understand your page's topics, improving discoverability.
 - **Google Analytics** — You can use these meta keywords as a custom dimension in GA4. In **Google Tag Manager**, create a "DOM Element" variable that reads the `content` attribute from `meta[name="keywords"]`, then send it as a parameter with your GA4 page view tag. This lets you filter and segment analytics by the tags you set in Needle Cloud.
 
+Needle Cloud also automatically sets `<meta name="description">`, Open Graph tags (`og:title`, `og:description`, `og:image`), and Twitter Card tags for your deployments — if your page doesn't already define them. This improves how your links appear in search results and when shared on social media or messaging apps.
+
+## Does Needle Engine support accessibility and screen readers?
+
+**Yes.** Needle Engine includes a built-in `AccessibilityManager` that creates a visually-hidden ARIA overlay mirroring interactive 3D objects. Several built-in components register accessible elements automatically:
+
+- **DragControls** — announces draggable objects and drag state
+- **Button** — exposes UI buttons to the accessibility tree
+- **Text** — exposes UI text content to screen readers
+- **Everywhere Actions** (ChangeTransformOnClick, ChangeMaterialOnClick, PlayAnimationOnClick, PlayAudioOnClick, EmphasizeOnClick) — announces clickable interactions
+
+Hovering over interactive objects announces them to screen readers via an ARIA live region. Custom components can participate by calling `this.context.accessibility.updateElement()`, `.focus()`, and `.hover()`.
+
 # Still have questions?
 
 - [Ask in our forum](https://forum.needle.tools/?utm_source=needle_docs&utm_content=content)
