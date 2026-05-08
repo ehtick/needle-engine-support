@@ -395,7 +395,7 @@ We recommend glTF and USD as the primary formats for 3D data interchange. They a
 
 ## RBAC (role-based access control)
 
-Teams consist of members, and each member of a team can get assigned a role. These roles define what you can and cannot do within a team on Needle Cloud.
+Teams consist of members, and each member of a team can get assigned a role. These roles define what you can and cannot do within a team on Needle Cloud. Billing details and subscriptions or licenses can also be managed on your [Needle Cloud team page](https://cloud.needle.tools/team).
 
 As your project scales and you add more team members, you can assign them roles to ensure that they have the right permissions to work on your projects.
 
@@ -441,5 +441,8 @@ As your project scales and you add more team members, you can assign them roles 
 11. **Can I use custom labels like `staging` or `beta`?**<br/>
     Custom labels are not yet available. Currently you can use `main` and `latest`. Support for custom labels is planned for a future release.
 
-12. **More answers**<br/>
+12. **Can I change the billing email address for invoices?**<br/>
+    Yes — see [FAQ](/docs/reference/faq#can-i-change-the-billing-email-address-for-invoices).
+
+13. **More answers**<br/>
     Visit the [Needle Cloud FAQ](https://cloud.needle.tools/faq)

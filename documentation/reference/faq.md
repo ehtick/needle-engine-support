@@ -156,6 +156,10 @@ If you haven't received a confirmation email after signing up or purchasing a li
 
 If you're still not receiving emails, there may be a service disruption. Check our [Status Page](https://status.needle.tools/) for current incidents or outages. If everything looks fine and you still haven't received the email, reach out to us at [hi@needle.tools](mailto:hi@needle.tools).
 
+## Can I change the billing email address for invoices?
+
+Yes. Go to your team's **Billing** section on [Needle Cloud](https://cloud.needle.tools/team), click <kbd>Edit</kbd>, then click <kbd>Edit Payment Info</kbd>. There you can change the invoice email address, update payment methods and cards, and review past payments and upcoming invoices. The billing email doesn't have to match your Needle account email.
+
 ## Can I remove the Needle Engine logo and branding (white-labelling)?
 
 Yes, the Needle Engine logo and branding can be removed with an [EDU, PRO, or Enterprise license](https://www.needle.tools/pricing). This allows you to fully white-label your web experiences with your own branding.
