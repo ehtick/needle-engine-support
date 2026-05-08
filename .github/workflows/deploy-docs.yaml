@@ -79,6 +79,15 @@ jobs:
             -H "Content-Type: application/json" \
             --data '{"prefixes":["engine.needle.tools/docs/"]}'
 
+      # trigger search index crawl
+      - name: Trigger Search Crawl
+        if: success()
+        run: |
+          curl -X POST https://search.needle.tools/api/v1/crawl \
+            -H "Authorization: Bearer ${{ secrets.NEEDLE_SEARCH_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d '{"source": "Needle Engine Docs"}'
+
 
   notify_discord:
     needs: docs
