@@ -67,28 +67,20 @@ export class OnImageFound extends Behaviour {
 
 ## Listening to the Image Tracking Event
 
-The `WebXRImageTracking` component dispatches an `image-tracking` event every frame when images are being tracked. The event's `detail` contains an array of `WebXRTrackedImage` objects.
+The `WebXRImageTracking` component dispatches an `image-tracking` event every frame when images are being tracked. The event's `detail` contains a `WebXRImageTrackingEvent` with the tracked images array.
 
 ```ts
-import { Behaviour, WebXRImageTracking, WebXRTrackedImage } from "@needle-tools/engine";
+import { Behaviour, WebXRImageTracking } from "@needle-tools/engine";
 
 export class ImageTrackingHandler extends Behaviour {
     onEnable() {
-        // Get the WebXRImageTracking component in the scene
         const tracker = this.gameObject.getComponent(WebXRImageTracking);
-        tracker?.addEventListener("image-tracking", this.onImageTracking);
-    }
-
-    onDisable() {
-        const tracker = this.gameObject.getComponent(WebXRImageTracking);
-        tracker?.removeEventListener("image-tracking", this.onImageTracking);
-    }
-
-    private onImageTracking = (event: CustomEvent) => {
-        const trackedImages: WebXRTrackedImage[] = event.detail;
-        for (const img of trackedImages) {
-            console.log(img.url, img.state);
-        }
+        // The event is fully typed — event.detail.trackedImages is WebXRTrackedImage[]
+        tracker?.addEventListener("image-tracking", event => {
+            for (const img of event.detail.trackedImages) {
+                console.log(img.url, img.state);
+            }
+        });
     }
 }
 ```
@@ -100,16 +92,15 @@ export class ImageTrackingHandler extends Behaviour {
 Each `WebXRTrackedImage` gives you access to the 3D object assigned in the `WebXRImageTrackingModel` configuration:
 
 ```ts
-private onImageTracking = (event: CustomEvent) => {
-    const trackedImages: WebXRTrackedImage[] = event.detail;
-    for (const img of trackedImages) {
+tracker?.addEventListener("image-tracking", event => {
+    for (const img of event.detail.trackedImages) {
         // Access the assigned AssetReference via the model configuration
         const obj = img.model.object;
 
         // From Needle Engine 5.1+ you can also use the shorthand:
         // const obj = img.trackedModel;
     }
-}
+});
 ```
 
 | Property | Type | Description |
@@ -130,14 +121,13 @@ import { Vector3, Quaternion } from "three";
 const position = new Vector3();
 const rotation = new Quaternion();
 
-private onImageTracking = (event: CustomEvent) => {
-    const trackedImages: WebXRTrackedImage[] = event.detail;
-    for (const img of trackedImages) {
+tracker?.addEventListener("image-tracking", event => {
+    for (const img of event.detail.trackedImages) {
         img.getPosition(position);
         img.getQuaternion(rotation);
         console.log("Position:", position, "Rotation:", rotation);
     }
-}
+});
 ```
 
 ---
