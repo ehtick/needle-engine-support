@@ -770,6 +770,23 @@ If you see "WebXR not found" or simply can't enter AR, check the following:
 
 For AR on iOS, Needle Engine supports WebXR via [App Clips (Needle Go)](/docs/explanation/core-concepts/ios-webxr-app-clip). See also the [Platform Support](#does-it-work-on-ios) section.
 
+## How do I access the tracked object from an image tracking event?
+
+Each `WebXRTrackedImage` received from the `image-tracking` event gives you access to the assigned 3D object via `img.model.object`:
+
+```ts
+tracker.addEventListener("image-tracking", (event: CustomEvent) => {
+    const trackedImages: WebXRTrackedImage[] = event.detail;
+    for (const img of trackedImages) {
+        // Access the assigned AssetReference
+        const obj = img.model.object;
+        // From Needle Engine 5.1+ you can also use: img.trackedModel
+    }
+});
+```
+
+See the [Scripting Image Tracking](/docs/how-to-guides/scripting/image-tracking) guide for more details.
+
 # AI
 
 ## How do I use AI to help me build with Needle Engine?

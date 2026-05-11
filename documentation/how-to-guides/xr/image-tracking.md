@@ -206,6 +206,7 @@ Image tracking opens up many creative possibilities:
 - [iOS WebXR Guide](/docs/how-to-guides/xr/ios-webxr-app-clip) - Enable native iOS support
 
 **Learn More:**
+- [Scripting Image Tracking](/docs/how-to-guides/scripting/image-tracking) - Access tracked images and objects from TypeScript
 - [XR Documentation](/docs/how-to-guides/xr/) - Full XR capabilities
 - [Everywhere Actions](/docs/how-to-guides/everywhere-actions/) - Alternative AR approaches
 - [Deployment Guide](/docs/how-to-guides/deployment/) - Publish your AR experience

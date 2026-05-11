@@ -48,6 +48,7 @@ Head to [Getting Started](/docs/getting-started/) to install Needle Engine for [
 - [Use Physics](/docs/how-to-guides/scripting/use-physics) - Rigidbodies, forces, collisions, triggers — powered by [Rapier](https://rapier.rs/)
 - [Accessibility](/docs/how-to-guides/accessibility) - Make 3D scenes accessible to screen readers and assistive technology
 - [Detect Mobile Devices](/docs/how-to-guides/scripting/detect-mobile-devices) - Platform detection
+- [Image Tracking Scripting](/docs/how-to-guides/scripting/image-tracking) - Access tracked images and objects from code
 
 ---
 
