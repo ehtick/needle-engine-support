@@ -795,6 +795,10 @@ For AR on iOS, Needle Engine supports WebXR via [App Clips (Needle Go)](/docs/ex
 
 Each `WebXRTrackedImage` received from the `image-tracking` event gives you access to the assigned 3D object via `img.model.object`:
 
+::: tip
+The `event.detail.trackedImages` event shape and `img.trackedModel` shorthand are available in the current Needle Engine 5.1 alpha and will be part of Needle Engine 5.1.x. If you're using an older engine version, update to the 5.1 alpha or newer.
+:::
+
 ```ts
 tracker.addEventListener("image-tracking", event => {
     for (const img of event.detail.trackedImages) {

@@ -15,6 +15,10 @@ This guide covers scripting image tracking from code. For most use cases, the bu
 Make sure you have [WebXR Image Tracking](/docs/how-to-guides/xr/image-tracking) set up in your scene first.
 :::
 
+:::tip Version
+The `WebXRImageTrackingEvent`, `event.detail.trackedImages`, `WebXRImageTrackingModel` constructor, `addImage`, and `img.trackedModel` APIs are available in the current Needle Engine 5.1 alpha and will be part of Needle Engine 5.1.x. If you're using an older engine version, update to the 5.1 alpha or newer.
+:::
+
 ---
 
 ## Setting Up Image Tracking from Code
@@ -23,7 +27,6 @@ You can configure image tracking entirely from TypeScript without the Unity/Blen
 
 ```ts
 import { Behaviour, WebXRImageTracking, WebXRImageTrackingModel } from "@needle-tools/engine";
-import { Object3D } from "three";
 
 export class CodeImageTracking extends Behaviour {
     start() {
@@ -37,7 +40,7 @@ export class CodeImageTracking extends Behaviour {
             imageDoesNotMove: false,
         });
 
-        tracker.trackedImages.push(model);
+        tracker.addImage(model);
     }
 }
 ```
@@ -76,11 +79,18 @@ export class ImageTrackingHandler extends Behaviour {
     onEnable() {
         const tracker = this.gameObject.getComponent(WebXRImageTracking);
         // The event is fully typed — event.detail.trackedImages is WebXRTrackedImage[]
-        tracker?.addEventListener("image-tracking", event => {
-            for (const img of event.detail.trackedImages) {
-                console.log(img.url, img.state);
-            }
-        });
+        tracker?.addEventListener("image-tracking", this.onImageTracking);
+    }
+
+    onDisable() {
+        const tracker = this.gameObject.getComponent(WebXRImageTracking);
+        tracker?.removeEventListener("image-tracking", this.onImageTracking);
+    }
+
+    private onImageTracking = (event: CustomEvent) => {
+        for (const img of event.detail.trackedImages) {
+            console.log(img.url, img.state);
+        }
     }
 }
 ```
