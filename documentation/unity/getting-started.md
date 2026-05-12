@@ -264,7 +264,7 @@ MyPackage/
 
 | Issue | Solution |
 | --- | --- |
-| Server won't start | [Install Node.js](../getting-started/#prerequisites) (version 18.x or newer) |
+| Server won't start | [Install Node.js](../getting-started/#prerequisites) (22 LTS or 24 LTS recommended) |
 | Can't edit code | [Install VSCode](../getting-started/#code-editor-and-tools) (recommended editor) |
 | Components not showing in Unity | Restart Unity or click "Generate C# Components" on Needle Engine component |
 | Hot reload not working | Check console for errors, restart dev server with "Install" button |

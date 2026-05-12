@@ -185,7 +185,7 @@ Share code across projects with **NPM Definitions (NpmDef)**:
 
 | Issue | Solution |
 | --- | --- |
-| Server won't start | [Install Node.js](../getting-started/#prerequisites) (18.x or newer) |
+| Server won't start | [Install Node.js](../getting-started/#prerequisites) (22 LTS or 24 LTS recommended) |
 | Can't edit code | [Install VSCode](../getting-started/#code-editor-and-tools) |
 | Components not showing | Restart Unity or click "Generate C# Components" |
 | Hot reload not working | Check console, restart dev server |
