@@ -313,6 +313,27 @@ See [Project Structure – package.json](/docs/explanation/core-concepts/project
 
 No, Chocolatey is not needed. During installation, the Node.js installer may show an option to install Chocolatey (a package manager for Windows). You can safely uncheck this option. Needle Engine does not use or require Chocolatey.
 
+## Which Node.js version should I use?
+
+We recommend **Node.js 22 LTS or 24 LTS**. Older versions (including Node 18, and Node 20 below 20.19) are no longer supported by the build tools Needle Engine relies on.
+
+The [Getting Started guide](/docs/getting-started/#node-js-required) also lists this as a prerequisite, with download links for Windows and macOS.
+
+Check your installed version with `node -v` in a terminal.
+
+## Vite says my Node.js version is too old / `SyntaxError: ... does not provide an export named 'styleText'`
+
+If you see an error like this when running `npm run dev`:
+
+```
+You are using Node.js 20.9.0. Vite requires Node.js version 20.19+ or 22.12+. Please upgrade your Node.js version.
+SyntaxError: The requested module 'node:util' does not provide an export named 'styleText'
+```
+
+…your Node.js version is too old. Vite 8 (used by recent Needle Engine versions) requires Node.js 20.19+ or 22.12+.
+
+**Fix:** Install a current LTS from the [Node.js download page](https://nodejs.org/) — see [Which Node.js version should I use?](#which-node-js-version-should-i-use) for our recommendation.
+
 ## I don't have any buttons like "Generate Project" in my components/inspector
 
 Please check that you're not accidentally in the Inspector's `Debug` mode – switch back to `Normal`:
