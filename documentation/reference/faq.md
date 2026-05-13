@@ -746,6 +746,24 @@ For tips on detecting mobile devices in your scripts, see [Detect Mobile Devices
 
 To enable VR, simply add the `WebXR` component to your scene. See the [VR & AR (WebXR) guide](/docs/how-to-guides/xr/) for details.
 
+## Does it work on Apple Vision Pro?
+
+**Yes!** Apple Vision Pro is fully supported for **immersive VR** via WebXR, including hand tracking and eye+pinch input. The same scene you build for Meta Quest runs on Vision Pro — no separate codebase, no app store.
+
+For **interactive passthrough (AR)** on Vision Pro, use [Everywhere Actions](/docs/how-to-guides/everywhere-actions/) — Needle Engine generates interactive USDZ files dynamically that play back in QuickLook on visionOS. WebXR `immersive-ar` is not available on visionOS at the moment — this is a platform limitation set by Apple, and affects every WebXR engine. Needle Engine's Everywhere Actions fill that gap with animations, material changes, spatial audio, and tap interactions in passthrough.
+
+**What works today on Vision Pro:**
+- **Immersive VR via WebXR** — works in Safari on visionOS 2+ out of the box (no flags needed). Add the `WebXR` component to your scene and the VR button appears.
+- **Hand tracking** and **transient pointer** input (eye+pinch) are supported natively.
+- **Interactive passthrough via [Everywhere Actions](/docs/how-to-guides/everywhere-actions/)** — animations, material changes, spatial audio, and tap interactions all play back in QuickLook on visionOS.
+- Picking up and manipulating virtual objects, physics, networking, and the rest of the engine feature set all work the same way they do on Quest in VR mode.
+
+**Recommended approach for a cross-platform Quest + Vision Pro app:**
+- For shared VR experiences (full immersion, hand tracking, multiplayer), build once with Needle Engine and ship to **both Quest and Vision Pro** via WebXR — same scene, same code.
+- If your app needs passthrough on Vision Pro, use [Everywhere Actions](/docs/how-to-guides/everywhere-actions/) for the Vision Pro path and WebXR passthrough for the Quest path. The same scene can target both.
+
+See [WebXR device support](/docs/how-to-guides/xr/#vr-headsets) for the full feature matrix.
+
 ## Does it work on iOS?
 
 **Yes!** Needle Engine works on iOS in two ways:

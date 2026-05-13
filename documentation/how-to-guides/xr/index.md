@@ -87,6 +87,24 @@ Needle Engine provides full WebXR support on iPhone and iPad through [App Clip t
 
 For USDZ/QuickLook-based iOS AR experiences, see [Everywhere Actions](/docs/how-to-guides/everywhere-actions/). This approach uses Apple's native 3D format and supports a subset of functionality including spatial audio, animations, and interactions.
 
+### <logo-header logo="/imgs/apple-logo.webp" alt="Apple">Apple Vision Pro</logo-header>
+
+**Immersive VR via WebXR — fully supported**
+
+Needle Engine works on Apple Vision Pro out of the box. Safari on visionOS 2+ ships WebXR enabled by default — no flags, no setup. The same scene you build for Meta Quest runs on Vision Pro.
+
+**Features:**
+- Immersive VR sessions via WebXR
+- Hand tracking
+- Transient pointer input (eye + pinch)
+- Picking, manipulating, physics, networking, multiplayer — same as on Quest
+
+**Interactive passthrough on Vision Pro**
+
+WebXR `immersive-ar` (passthrough) is not currently exposed by Apple on visionOS — this is a platform limitation that affects every WebXR engine, not Needle Engine specifically. For interactive passthrough content on Vision Pro today, use [Everywhere Actions](/docs/how-to-guides/everywhere-actions/). Needle Engine generates interactive USDZ files dynamically that play back in QuickLook on visionOS, with animations, material changes, spatial audio, and tap interactions — covering the most common passthrough use cases.
+
+For a cross-platform Quest + Vision Pro app: use WebXR for shared VR, and add an Everywhere Actions path for Vision Pro passthrough from the same scene.
+
 ### Supported Devices & Browsers
 
 The following devices and browsers have been verified to work with Needle Engine. When new devices with WebXR support are released, they will work with your apps out of the box.
@@ -107,7 +125,7 @@ The following devices and browsers have been verified to work with Needle Engine
 
 | Device | Browser | Features |
 | --- | --- | --- |
-| <logo-header logo="/imgs/apple-logo.webp" alt="Apple">Apple Vision Pro</logo-header> | ✔️ Safari | hand tracking, transient pointer support |
+| <logo-header logo="/imgs/apple-logo.webp" alt="Apple">Apple Vision Pro</logo-header> | ✔️ Safari (visionOS 2+) | Immersive VR via WebXR with hand tracking and transient pointer (eye + pinch). For interactive passthrough on Vision Pro, use [Everywhere Actions](/docs/how-to-guides/everywhere-actions/) — WebXR `immersive-ar` is not currently exposed by Apple on visionOS. |
 | <logo-header logo="/imgs/meta-logo.webp" alt="Meta">Meta Quest 3</logo-header> | ✔️ Meta Browser | hand tracking, sessiongranted<sup>1</sup>, passthrough, depth sensing, mesh tracking |
 | <logo-header logo="/imgs/meta-logo.webp" alt="Meta">Meta Quest 3S</logo-header> | ✔️ Meta Browser | hand tracking, sessiongranted<sup>1</sup>, passthrough, depth sensing, mesh tracking |
 | <logo-header logo="/imgs/meta-logo.webp" alt="Meta">Meta Quest 2</logo-header> | ✔️ Meta Browser | hand tracking, sessiongranted<sup>1</sup>, passthrough (black and white) |
