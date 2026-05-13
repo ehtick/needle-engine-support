@@ -109,6 +109,35 @@ export class VoiceChatSetup extends Behaviour {
 - Works across desktop, mobile, and VR
 - No additional server costs for voice
 
+### Controlling Voice Chat
+
+Common properties and methods on the `Voip` component:
+
+| Property / method | What it does |
+|---|---|
+| `connect()` / `disconnect()` | Start or stop sending your microphone |
+| `setMuted(true / false)` | Mute or unmute the audio you hear from other users — does **not** affect your microphone |
+| `volume` (0–1) | Adjust playback volume of remote audio |
+| `speakingThreshold` | Threshold for the `onSpeakingChanged` event (see below) |
+| `onSpeakingChanged` | Event fired when a remote user starts or stops speaking |
+
+### Speaking Detection
+
+Listen for speaking-state changes on remote users — useful for showing a "talking" indicator next to each avatar:
+
+```ts
+voip.onSpeakingChanged.addEventListener((evt) => {
+    console.log(evt.userId, evt.isSpeaking, evt.volume); // volume: 0–1
+});
+```
+
+::: warning Upcoming change in 5.1.x
+In versions up to 5.0.x, `speakingThreshold` uses the raw analyser byte range (0–255, default `30`).
+In **5.1.x and later** it switches to a normalized range (0–1, default `0.1`) to match the `volume` value passed to `onSpeakingChanged`. If you set `speakingThreshold` explicitly, you'll need to divide your existing value by 255 when upgrading.
+
+The 5.1.x update also corrects `setMuted` semantics: it now mutes **incoming** audio (other users) instead of disabling your microphone. Use `disconnect()` to stop sending your microphone.
+:::
+
 ### Screen Sharing
 
 Use the `ScreenCapture` component alongside VoIP for screen sharing capabilities — [example](https://engine.needle.tools/samples/screensharing).
