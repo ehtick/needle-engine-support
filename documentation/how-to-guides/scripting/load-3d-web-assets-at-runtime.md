@@ -211,7 +211,7 @@ If a load fails, open the browser DevTools Network tab — most external-URL iss
 
 Try it in your browser — the example below uses `SceneSwitcher.addScene()` with several Needle Cloud URLs. Swap them for your own to test:
 
-[![Stackblitz: load scenes from URLs](/imgs/stackblitz-logo.png) Open on Stackblitz](https://stackblitz.com/edit/needle-engine-vite-template)
+[Open on Stackblitz](https://stackblitz.com/edit/needle-engine-vite-template) — uses `SceneSwitcher.addScene()` with several Needle Cloud URLs.
 
 ## Related
 
