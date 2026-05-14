@@ -489,8 +489,13 @@ Yes! Enable **Use Scene Lighting** and **Use Scene Background** to apply each sc
 **How do I prevent users from jumping scenes?**  
 Set `useKeyboard = false` and `useSwipe = false`, then only provide your own UI for navigation.
 
-**Can I load scenes from external URLs?**  
-Yes! Use `addScene("https://example.com/scene.glb")` to add external scenes.
+**Can I load scenes from external URLs / a CDN / S3?**  
+Yes! `addScene()` accepts any HTTPS URL — Needle Cloud, AWS S3, Cloudflare R2, your own CDN, or any static host. Make sure the host serves the file with permissive CORS headers. See [Load 3D Web Assets at Runtime](/docs/how-to-guides/scripting/load-3d-web-assets-at-runtime) for a full walkthrough including hosting and CORS setup.
+
+```ts
+switcher.addScene("https://cloud.needle.tools/-/assets/Z23hmXBZ21QnG-latest-world/file");
+switcher.addScene("https://your-bucket.s3.amazonaws.com/products/chair.glb");
+```
 
 **What's the difference between Loading Scene and regular scenes?**  
 The loading scene appears while other scenes load. It's optional but improves UX for large scenes.

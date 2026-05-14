@@ -104,7 +104,7 @@ Removing unused physics colliders is one of the easiest wins. Double-check that 
 **Reduce initial load time:**
 - [Enable progressive texture loading](/docs/how-to-guides/optimization/progressive-loading-and-lods) and [automatic mesh LODs](/docs/how-to-guides/optimization/progressive-loading-and-lods#automatic-mesh-lods-level-of-detail)
 - Use `SceneSwitcher` to split your project into a lightweight main scene that only contains the scene switcher and loads content scenes on demand — this keeps the initial download small
-- Use `AssetReference` for on-demand loading of individual assets
+- Use `AssetReference` for on-demand loading of individual assets — see [Load 3D Web Assets at Runtime](/docs/how-to-guides/scripting/load-3d-web-assets-at-runtime) for all four loading APIs, including loading from a CDN or external URL
 
 **Improve runtime performance:**
 - Avoid physics colliders if you don't need physics (saves ~2 MB Rapier Wasm download)

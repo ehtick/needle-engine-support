@@ -46,6 +46,7 @@ Head to [Getting Started](/docs/getting-started/) to install Needle Engine for [
 - [Handle User Input](/docs/how-to-guides/scripting/handle-input) - Mouse, touch, keyboard, VR controllers
 - [Perform Raycasting](/docs/how-to-guides/scripting/perform-raycasting) - Detect objects and hit points
 - [Use Physics](/docs/how-to-guides/scripting/use-physics) - Rigidbodies, forces, collisions, triggers — powered by [Rapier](https://rapier.rs/)
+- [Load 3D Web Assets at Runtime](/docs/how-to-guides/scripting/load-3d-web-assets-at-runtime) - Load GLBs from Needle Cloud, S3, or any HTTPS URL using `loadAsset`, `AssetReference`, `SceneSwitcher`, or `<needle-engine src>`
 - [Accessibility](/docs/how-to-guides/accessibility) - Make 3D scenes accessible to screen readers and assistive technology
 - [Detect Mobile Devices](/docs/how-to-guides/scripting/detect-mobile-devices) - Platform detection
 - [Image Tracking Scripting](/docs/how-to-guides/scripting/image-tracking) - Access tracked images and objects from code

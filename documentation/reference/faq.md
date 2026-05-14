@@ -652,6 +652,33 @@ This can have many reasons, but a few common ones are:
 
 If loading time itself is an issue you can **try to split up your content into multiple glb files** and load them on-demand (this is what we do on our website). For it to work you can put your content into Prefabs or Scenes and reference them from any of your scripts. Please have a look at [Scripting Examples in the documentation](/docs/reference/scripting-examples#assetreference-and-addressables).
 
+## Can I load GLB files from a CDN, S3 bucket, or external URL instead of bundling them?
+
+**Yes.** Every loading API in Needle Engine accepts a full URL, so you can host GLBs on [Needle Cloud](/docs/cloud/), AWS S3, Cloudflare R2, your own CDN, or any static web host, and load them at runtime instead of bundling them into your build. This is useful when you have many models, update assets without rebuilding, or work with user-generated content.
+
+You have four options depending on the use case:
+
+1. **`<needle-engine src="https://…/scene.glb">`** — set the root scene to a hosted URL from HTML.
+2. **`SceneSwitcher.addScene(url)`** — best for galleries, configurators, or 20+ models. Add URLs at runtime; preload, swipe, keyboard nav all work the same as bundled scenes.
+3. **`AssetReference.getOrCreate(baseURI, url)`** + `instantiate()` — cache one asset by URL and spawn multiple independent copies. Same API as Unity/Blender prefab references.
+4. **`loadAsset(url)`** — quick one-off load returning a model wrapper (`.scene`, `.animations`, …).
+
+Quick SceneSwitcher example loading from a mix of hosts:
+
+```ts
+import { addComponent, SceneSwitcher } from "@needle-tools/engine";
+
+const switcher = addComponent(scene, SceneSwitcher, { autoLoadFirstScene: false });
+switcher.addScene("https://cloud.needle.tools/-/assets/Z23hmXBZ21QnG-latest-world/file");
+switcher.addScene("https://your-bucket.s3.amazonaws.com/products/chair-red.glb");
+switcher.addScene("https://your-cdn.com/models/lamp.glb");
+switcher.select(0);
+```
+
+The host must serve the file with correct **CORS** headers (`Access-Control-Allow-Origin`) and ideally `Content-Type: model/gltf-binary`. [Needle Cloud](/docs/cloud/) handles this automatically and adds progressive loading (~90% less bandwidth), automatic KTX2/Draco compression, a global CDN, and **moveable version labels** — point your app at a `main`-labeled URL once, then ship asset updates by promoting new versions in the dashboard, without rebuilding or redeploying your app.
+
+See the full guide: [Load 3D Web Assets at Runtime](/docs/how-to-guides/scripting/load-3d-web-assets-at-runtime).
+
 ## How can I override compression or LOD settings for individual textures?
 
 You don't need to change global settings when only a few textures need special treatment. Both Unity and Blender let you override compression format, max resolution, and progressive LOD generation per texture — while keeping the defaults for everything else.
