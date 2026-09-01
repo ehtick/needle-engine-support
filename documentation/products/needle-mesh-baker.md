@@ -172,7 +172,7 @@ Everything up to the download is free. You can bring as many models as you like,
 
 ### What it costs
 
-**A one-time purchase with lifetime access.** No subscription, no seats to renew — it stays yours. The current price, and any running discount, is shown in the purchase dialog.
+**A one-time purchase with lifetime access.** No subscription, no seats to renew, no cap on how many models you bake — it stays yours. The current price, and any running discount, is shown in the purchase dialog.
 
 Already have **[Needle Engine Pro](https://needle.tools/pricing)**? The Mesh Baker is included. Sign in and it unlocks.
 
@@ -243,6 +243,12 @@ Start with how the model is simplified. Rebuilding the surface is the better def
 ### Can I run it in my own pipeline or CI?
 
 Yes — a command-line version exists for exactly that, so baking can run as a build step or over a whole folder of models. It is licensed separately: write to [hi@needle.tools](mailto:hi@needle.tools?subject=Needle%20Mesh%20Baker%20CLI).
+
+### Is there a limit on how many models I can bake?
+
+**No.** In the browser version there is no monthly quota and no cap on the number of assets — load as many models as you like and bake them as often as you like. It all runs locally on your machine, so there is nothing to meter.
+
+What that covers is you, working in the browser. It does not cover automated or unattended baking — a build step, a whole folder processed in one go, or a service that bakes models for other people. That is the [command-line version](#batch-and-ci-use), and it needs a separate license.
 
 ### Is it a subscription?
 
